@@ -1,0 +1,4 @@
+[core]
+    remote = ml-versioning
+['remote "ml-versioning"']
+    url = /Users/wontakryu/remote/ml-versioning
