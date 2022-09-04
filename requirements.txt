@@ -1,0 +1,6 @@
+pytorch-lightning==1.7.0
+torchvision
+pytorch
+protobuf
+numpy==1.23.1
+mlflow==1.28.0
