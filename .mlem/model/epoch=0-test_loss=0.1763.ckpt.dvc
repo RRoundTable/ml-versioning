@@ -1,4 +1,0 @@
-outs:
-- md5: cdf3011e2981855f352e3859c1b90ed5
-  size: 4804687
-  path: epoch=0-test_loss=0.1763.ckpt
