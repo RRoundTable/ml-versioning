@@ -268,6 +268,8 @@ $ mkdir -p checkpoints
 $ mv lightning_logs/version_2/checkpoints/epoch=9-test_loss=0.0653.ckpt checkpoints/model.ckpt
 
 ```
+
+```
 $ dvc add checkpoints
 ```
 
