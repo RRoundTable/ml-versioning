@@ -132,7 +132,6 @@ version_2
 
 ## Add dataset on DVC
 
-```
 
 Add datasets
 
