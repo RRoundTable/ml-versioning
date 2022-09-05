@@ -22,10 +22,10 @@ from aim import Distribution
 
 
 class ImageClassifier(LightningModule):
-    def __init__(self, model, lr=1.0, gamma=0.7, batch_size=32):
+    def __init__(self, lr=1.0, gamma=0.7, batch_size=32):
         super().__init__()
         self.save_hyperparameters(ignore="model")
-        self.model = model or Net()
+        self.model = Net()
 
     def forward(self, x):
         return self.model(x)
@@ -50,20 +50,3 @@ class ImageClassifier(LightningModule):
                 optimizer, step_size=1, gamma=self.hparams.gamma
             )
         ]
-    def validation_epoch_end(self, outputs) -> None:
-        weight_hist = {}
-        for name, param in self.model.named_parameters():
-            weight_hist[name] = Distribution(param)
-        self.logger.log_metrics(weight_hist)
-
-    def on_train_end(self) -> None:
-        from mlem.api import save
-        import glob
-        checkpoint_dir = os.path.join(self.logger.save_dir, self.logger.name or "None", self.logger.version, "*.ckpt")
-        checkpoints = glob.glob(checkpoint_dir)
-        save_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), ".mlem/model")
-        for checkpoint in checkpoints:
-            _, filename = os.path.split(checkpoint)
-            savepath = os.path.join(save_dir, filename)
-            model = self.load_from_checkpoint(checkpoint)
-            save(model, savepath)
