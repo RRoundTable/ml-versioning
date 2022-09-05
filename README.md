@@ -313,5 +313,3 @@ $ git commit -m "save model v2"
 [1] [lightning mnist example](https://github.com/Lightning-AI/lightning/blob/master/examples/convert_from_pt_to_pl/image_classifier_5_lightning_datamodule.py)
 
 [2] [Get Started: Data Versioning](https://dvc.org/doc/start/data-management)
-
-[3] [AimLogger](https://aimstack.readthedocs.io/en/v3.0.4/guides/integrations/basic_aim_pytorch_lightning.html)
