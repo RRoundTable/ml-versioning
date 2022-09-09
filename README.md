@@ -361,6 +361,14 @@ history `model`
 $ gto history model
 ```
 
+checkout and pull `model@v0.0.1`
+
+```
+$ git checkout model@v0.0.1
+$ dvc pull -r localstorage
+
+```
+
 
 ## Reference
 
