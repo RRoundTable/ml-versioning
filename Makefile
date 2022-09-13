@@ -13,5 +13,8 @@ train:
 	echo "Run train with 10 epochs and 0.1 limit batches to check mlflow client quickly. "
 	python src/main.py fit --config configs/small_train.yaml  --trainer.limit_train_batches 0.1 --trainer.limit_val_batches 0.1
 
-aim:
-	aim up
+mnist:
+	dvc get https://github.com/RRoundTable/data-versioning dataset
+	mkdir -p dataset/MNIST/raw
+	mv dataset/*ubyte dataset/MNIST/raw/
+
