@@ -18,7 +18,7 @@ import torchvision.transforms as T
 from pytorch_lightning import LightningDataModule
 from pytorch_lightning.demos.mnist_datamodule import MNIST
 
-DATASETS_PATH = path.join(path.dirname(__file__), "..", "Datasets")
+DATASETS_PATH = path.join(path.dirname(__file__), "..", "dataset")
 
 
 class MNISTDataModule(LightningDataModule):
@@ -31,7 +31,7 @@ class MNISTDataModule(LightningDataModule):
         return T.Compose([T.ToTensor(), T.Normalize((0.1307,), (0.3081,))])
 
     def prepare_data(self) -> None:
-        MNIST(DATASETS_PATH, download=True)
+        MNIST(DATASETS_PATH, download=False)
 
     def train_dataloader(self):
         train_dataset = MNIST(
