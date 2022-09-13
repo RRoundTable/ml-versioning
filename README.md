@@ -307,6 +307,68 @@ $ git add checkpoints.dvc
 $ git commit -m "save model v2"
 ```
 
+## Git Tag Ops: Model Registry
+
+List commit and search commit that save model.
+
+```
+$ git log --oneline
+
+...
+78abffb save model v2
+cba449f save mode
+...
+```
+
+Register `cba449f` as version v0.0.1
+
+```
+$ gto register model cba449 --version v0.0.1
+
+Created git tag 'model@v0.0.1' that registers version
+To push the changes upstream, run:
+    git push model@v0.0.1
+```
+
+Register `78abffb` as version v0.0.2
+
+```
+$ gto register model 78abffb --version v0.0.2
+
+Created git tag 'model@v0.0.2' that registers version
+To push the changes upstream, run:
+    git push model@v0.0.2
+```
+
+
+Show `model`
+
+```
+$ gto show model
+
+╒════════════╤═══════════╤═════════╤═════════════════════╤══════════════╕
+│ artifact   │ version   │ stage   │ created_at          │ ref          │
+╞════════════╪═══════════╪═════════╪═════════════════════╪══════════════╡
+│ model      │ v0.0.2    │         │ 2022-09-09 21:09:44 │ model@v0.0.2 │
+│ model      │ v0.0.1    │         │ 2022-09-09 21:07:35 │ model@v0.0.1 │
+╘════════════╧═══════════╧═════════╧═════════════════════╧══════════════╛
+```
+
+
+history `model`
+
+```
+$ gto history model
+```
+
+checkout and pull `model@v0.0.1`
+
+```
+$ git checkout model@v0.0.1
+$ dvc pull -r localstorage
+
+```
+
 
 ## Reference
 
