@@ -1,4 +1,0 @@
-[core]
-    remote = localstorage
-['remote "localstorage"']
-    url = /Users/wontakryu/remote/localstorage
