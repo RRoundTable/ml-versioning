@@ -70,35 +70,6 @@ version_2
 ```
 
 
-## Model versioning with DVC
-
-
-Add model to dvc and git
-
-Move model to model directory `checkpoints`
-
-```
-$ mkdir -p checkpoints
-$ mv lightning_logs/version_2/checkpoints/epoch=9-test_loss=0.0653.ckpt checkpoints/model.ckpt
-
-```
-
-```
-$ dvc add checkpoints
-```
-
-```
-$ git add checkpoints.dvc
-$ git commit -m "Save model"
-```
-
-Push
-
-```
-$ dvc push -r localstorage
-```
-
-
 ## Make a new model and commit on git
 
 Run new train and generage new checkpoints.
@@ -117,72 +88,10 @@ Add to dvc and commit in submodule `model-versioning`.
 
 ```
 $ dvc add checkpoint
+$ dvc push -r localstorage
 $ git add checkpoint.dvc
 $ git commit -m "save model v1"
 ```
-
-## Git Tag Ops: Model Registry
-
-List commit and search commit that save model.
-
-```
-$ git log --oneline
-
-...
-78abffb save model v2
-cba449f save mode
-...
-```
-
-Register `cba449f` as version v0.0.1
-
-```
-$ gto register model cba449 --version v0.0.1
-
-Created git tag 'model@v0.0.1' that registers version
-To push the changes upstream, run:
-    git push model@v0.0.1
-```
-
-Register `78abffb` as version v0.0.2
-
-```
-$ gto register model 78abffb --version v0.0.2
-
-Created git tag 'model@v0.0.2' that registers version
-To push the changes upstream, run:
-    git push model@v0.0.2
-```
-
-
-Show `model`
-
-```
-$ gto show model
-
-╒════════════╤═══════════╤═════════╤═════════════════════╤══════════════╕
-│ artifact   │ version   │ stage   │ created_at          │ ref          │
-╞════════════╪═══════════╪═════════╪═════════════════════╪══════════════╡
-│ model      │ v0.0.2    │         │ 2022-09-09 21:09:44 │ model@v0.0.2 │
-│ model      │ v0.0.1    │         │ 2022-09-09 21:07:35 │ model@v0.0.1 │
-╘════════════╧═══════════╧═════════╧═════════════════════╧══════════════╛
-```
-
-
-history `model`
-
-```
-$ gto history model
-```
-
-checkout and pull `model@v0.0.1`
-
-```
-$ git checkout model@v0.0.1
-$ dvc pull -r localstorage
-
-```
-
 
 ## Reference
 
