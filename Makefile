@@ -14,7 +14,4 @@ train:
 	python src/main.py fit --config configs/small_train.yaml  --trainer.limit_train_batches 0.1 --trainer.limit_val_batches 0.1
 
 mnist:
-	dvc get https://github.com/RRoundTable/data-versioning dataset
-	mkdir -p dataset/MNIST/raw
-	mv dataset/*ubyte dataset/MNIST/raw/
-
+	cd data-versioning && dvc pull -r localstorage
