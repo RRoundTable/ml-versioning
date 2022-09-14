@@ -18,7 +18,7 @@ import torchvision.transforms as T
 from pytorch_lightning import LightningDataModule
 from pytorch_lightning.demos.mnist_datamodule import MNIST
 
-DATASETS_PATH = path.join(path.dirname(__file__), "..", "dataset")
+DATASETS_PATH = path.join(path.dirname(__file__), "..", "data-versioning")
 
 
 class MNISTDataModule(LightningDataModule):
