@@ -107,18 +107,18 @@ Run new train and generage new checkpoints.
 $ make train
 ```
 
-Move model to `checkpoints/model.ckpt`
+Copy model to `model-versioning`
 
 ```
-$ mv lightning_logs/version_3/checkpoints/epoch=9-test_loss=0.0626.ckpt checkpoints/model.ckpt
+$ cp -r lightning_logs/version_0/ model-versioning/checkpoint
 ```
 
-Add to dvc and commit
+Add to dvc and commit in submodule `model-versioning`.
 
 ```
-$ dvc add checkpoints
-$ git add checkpoints.dvc
-$ git commit -m "save model v2"
+$ dvc add checkpoint
+$ git add checkpoint.dvc
+$ git commit -m "save model v1"
 ```
 
 ## Git Tag Ops: Model Registry
