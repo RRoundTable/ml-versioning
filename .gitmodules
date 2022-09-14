@@ -1,3 +1,6 @@
 [submodule "data-versioning"]
 	path = data-versioning
 	url = git@github.com:RRoundTable/data-versioning.git
+[submodule "model-versioning"]
+	path = model-versioning
+	url = git@github.com:RRoundTable/model-versioning.git
