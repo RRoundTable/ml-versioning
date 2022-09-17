@@ -1,5 +1,7 @@
 # ML Versioning with DVC
 
+![](ml-versioning.png)
+
 ## Prerequisite
 
 - Anaconda3
