@@ -5,8 +5,8 @@
 ## Prerequisite
 
 - Anaconda3
-- data-versioning repository
-- model-versioning repository
+- Build `data-versioning` repository from `before-register-data`
+- Build `model-versioning` repository from `before-reister-model`
 
 ## Setup
 
