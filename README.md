@@ -5,7 +5,8 @@
 ## Prerequisite
 
 - Anaconda3
-
+- data-versioning repository
+- model-versioning repository
 
 ## Setup
 
