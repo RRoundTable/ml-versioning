@@ -16,7 +16,8 @@ from os import path
 import torch
 import torchvision.transforms as T
 from pytorch_lightning import LightningDataModule
-from pytorch_lightning.demos.mnist_datamodule import MNIST
+from torchvision.datasets import MNIST
+
 
 DATASETS_PATH = path.join(path.dirname(__file__), "..", "data-versioning")
 
